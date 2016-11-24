@@ -1,0 +1,43 @@
+// header  style
+.header {
+	margin-bottom: 10px;
+	padding: 5px 0;
+	border-bottom: 1px solid #999;
+	.topbar {
+		margin: 0 auto;
+		height: $topbar-height;
+		width: $container-width;
+		div {
+			display: inline-block;
+			margin-top: 5px;
+			margin-left: 5px;
+			width: 80px;
+			height: 20px;
+			border: 1px solid green;
+		}
+		ul {
+			float: right;
+			margin:0;
+			line-height: $topbar-height;
+			li {
+				position: relative;
+				float: left;
+				font-size: .9rem;
+				color: #333333;
+				margin-left: 25px;
+				cursor: pointer;
+				user-select: none;
+			}
+			li + li::before {
+				content: '';
+				position: absolute;
+				top: 8px;
+				left: -13px;
+				display: block;
+				width: 1px;
+				height: 14px;
+				background-color: #d9d9d9;
+			}
+		}
+	}
+}
