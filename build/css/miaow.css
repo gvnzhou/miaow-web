@@ -181,14 +181,16 @@ html {
   font-size: 16px; }
 
 body {
-  font-family: "Microsoft YaHei",微软雅黑,Arial,Helvetica,sans-serif,"宋体"; }
+  font-family: "Microsoft YaHei",微软雅黑,Arial,Helvetica,sans-serif,"宋体";
+  background-color: rgba(240, 248, 255, 0.5); }
 
 ol, ul {
   list-style: none; }
 
 .container {
   margin: 0 auto;
-  width: 1000px; }
+  width: 1000px;
+  background-color: #FFF; }
   .container:before, .container:after {
     content: " ";
     display: table; }
@@ -198,18 +200,19 @@ ol, ul {
 .header {
   margin-bottom: 10px;
   padding: 5px 0;
-  border-bottom: 1px solid #999; }
+  border-bottom: 1px solid #eee;
+  background-color: #FFF;
+  box-shadow: 1px 1px 1px #eee; }
   .header .topbar {
     margin: 0 auto;
     height: 30px;
     width: 1000px; }
-    .header .topbar div {
+    .header .topbar .logo {
       display: inline-block;
       margin-top: 5px;
       margin-left: 5px;
       width: 80px;
-      height: 20px;
-      border: 1px solid green; }
+      height: 20px; }
     .header .topbar ul {
       float: right;
       margin: 0;
@@ -245,35 +248,97 @@ ol, ul {
   width: 333.33333px;
   border: 1px solid red; }
 
-.mask {
+#react-application .mask {
   position: absolute;
   left: 0;
   top: 0;
+  margin: 0;
+  padding: 0;
   width: 100%;
   height: 100%;
   background-color: rgba(245, 245, 245, 0.6);
   z-index: 99; }
-  .mask .modal {
+  #react-application .mask .modal {
     position: relative;
     left: 50%;
     top: 50%;
     margin: 0 auto;
     width: 400px;
-    height: 300px;
+    height: 280px;
     margin-left: -200px;
-    margin-top: -150px;
+    margin-top: -140px;
     text-align: center;
     background-color: #FFF;
     border: 1px solid #d9d9d9;
     border-radius: 5px; }
-    .mask .modal h2 {
-      margin: 25px 0;
+    #react-application .mask .modal h2 {
+      margin: 15px 0;
       text-align: center;
       font-size: 1rem; }
-    .mask .modal .form input {
-      display: block;
-      width: 220px;
-      margin: 15px auto;
-      padding: 2px 5px; }
-    .mask .modal button {
-      margin-top: 20px; }
+    #react-application .mask .modal .fa-times {
+      position: absolute;
+      top: 5px;
+      right: 5px;
+      cursor: pointer;
+      color: #999; }
+      #react-application .mask .modal .fa-times:hover {
+        color: #000; }
+    #react-application .mask .modal .form .input-group {
+      position: relative;
+      width: 240px;
+      margin: 15px auto; }
+      #react-application .mask .modal .form .input-group i {
+        position: absolute;
+        top: 8px;
+        left: 10px;
+        color: #999; }
+      #react-application .mask .modal .form .input-group .fa-lock {
+        top: 6px;
+        left: 11px;
+        font-size: 1.2rem; }
+      #react-application .mask .modal .form .input-group input {
+        display: inline-block;
+        width: 220px;
+        padding: 4px 5px;
+        padding-left: 30px;
+        font-size: .8rem; }
+    #react-application .mask .modal .form .login-option {
+      width: 250px;
+      margin: 0 auto;
+      margin-top: -12px; }
+      #react-application .mask .modal .form .login-option:before, #react-application .mask .modal .form .login-option:after {
+        content: " ";
+        display: table; }
+      #react-application .mask .modal .form .login-option:after {
+        clear: both; }
+      #react-application .mask .modal .form .login-option .remeber {
+        float: left;
+        display: inline-block;
+        width: 60px; }
+        #react-application .mask .modal .form .login-option .remeber input[type='checkbox'] {
+          width: 12px;
+          height: 12px; }
+        #react-application .mask .modal .form .login-option .remeber label {
+          margin-left: 2px;
+          font-size: .8rem;
+          color: #999;
+          vertical-align: top; }
+      #react-application .mask .modal .form .login-option a {
+        float: right;
+        margin-right: -12px;
+        font-size: .8rem;
+        color: #999; }
+        #react-application .mask .modal .form .login-option a:hover {
+          color: #D15E7A; }
+    #react-application .mask .modal button {
+      padding: 3px 0;
+      margin-top: 15px;
+      width: 180px;
+      border-radius: 5px;
+      background-color: #D15E7A;
+      color: #FFFFFF;
+      font-size: .9rem;
+      border: 0;
+      outline: 0; }
+      #react-application .mask .modal button:hover {
+        opacity: .7; }

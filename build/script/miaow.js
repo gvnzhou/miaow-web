@@ -20538,7 +20538,7 @@ var MiaoContent = function (_React$Component) {
 				_react2.default.createElement(
 					'div',
 					{ className: 'public-content' },
-					'\u5185\u5BB9'
+					'\u53D1\u5E03'
 				),
 				_react2.default.createElement(
 					'div',
@@ -20581,28 +20581,60 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 var TopNav = function (_React$Component) {
 	_inherits(TopNav, _React$Component);
 
-	function TopNav() {
+	function TopNav(props) {
 		_classCallCheck(this, TopNav);
 
-		return _possibleConstructorReturn(this, (TopNav.__proto__ || Object.getPrototypeOf(TopNav)).apply(this, arguments));
+		var _this = _possibleConstructorReturn(this, (TopNav.__proto__ || Object.getPrototypeOf(TopNav)).call(this, props));
+
+		_this.showModalClick = _this.showModalClick.bind(_this);
+		_this.hideModalClick = _this.hideModalClick.bind(_this);
+		_this.state = { modalType: 0 };
+		return _this;
 	}
 
 	_createClass(TopNav, [{
+		key: 'showModalClick',
+		value: function showModalClick(type) {
+			this.setState({ modalType: type });
+		}
+	}, {
+		key: 'hideModalClick',
+		value: function hideModalClick() {
+			this.setState({ modalType: 0 });
+		}
+	}, {
 		key: 'render',
 		value: function render() {
+			var _this2 = this;
+
+			var modalType = this.state.modalType;
+			var RegType = 1;
+			var LoginType = 2;
+
+			var modal = null;
+			if (modalType === RegType) {
+				modal = _react2.default.createElement(_Modal.Modal, { cbTopNav: this.hideModalClick, modalType: RegType });
+			} else if (modalType === LoginType) {
+				modal = _react2.default.createElement(_Modal.Modal, { cbTopNav: this.hideModalClick, modalType: LoginType });
+			}
 			return _react2.default.createElement(
 				'ul',
 				{ className: 'topnav' },
 				_react2.default.createElement(
 					'li',
-					{ onClick: _Modal.RegModal },
+					{ onClick: function onClick() {
+							_this2.showModalClick(RegType);
+						} },
 					'\u6CE8\u518C'
 				),
 				_react2.default.createElement(
 					'li',
-					null,
+					{ onClick: function onClick() {
+							_this2.showModalClick(LoginType);
+						} },
 					'\u767B\u5F55'
-				)
+				),
+				modal
 			);
 		}
 	}]);
@@ -20630,7 +20662,7 @@ var MiaoHeader = function (_React$Component2) {
 					{ className: 'topbar' },
 					_react2.default.createElement(
 						'div',
-						null,
+						{ className: 'logo' },
 						'logo'
 					),
 					_react2.default.createElement(TopNav, null)
@@ -20650,54 +20682,177 @@ exports.MiaoHeader = MiaoHeader;
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
-exports.RegModal = undefined;
+exports.Modal = undefined;
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactDom = require('react-dom');
-
-var _reactDom2 = _interopRequireDefault(_reactDom);
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function ceateMask() {
-    // TODO:可以抽象成一个方法
-    var maskElem = document.createElement('div');
-    maskElem.id = 'mask';
-    maskElem.className = 'mask';
-    document.body.appendChild(maskElem);
-}
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-function RegModal() {
-    // 注册框
-    var element = _react2.default.createElement(
-        'div',
-        { className: 'modal' },
-        _react2.default.createElement(
-            'h2',
-            null,
-            '\u8D26\u53F7\u6CE8\u518C'
-        ),
-        _react2.default.createElement(
-            'div',
-            { className: 'form' },
-            _react2.default.createElement('input', { type: 'text', placeholder: '\u7528\u6237\u540D' }),
-            _react2.default.createElement('input', { type: 'password', placeholder: '\u5BC6\u7801' }),
-            _react2.default.createElement('input', { type: 'password', placeholder: '\u518D\u6B21\u8F93\u5165\u5BC6\u7801' })
-        ),
-        _react2.default.createElement(
-            'button',
-            null,
-            '\u7ACB\u5373\u6CE8\u518C'
-        )
-    );
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
-    ceateMask();
-    _reactDom2.default.render(element, document.getElementById('mask'));
-}
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-exports.RegModal = RegModal;
+var Modal = function (_React$Component) {
+    _inherits(Modal, _React$Component);
 
-},{"react":178,"react-dom":25}]},{},[179]);
+    // Modal组件
+    function Modal(props) {
+        _classCallCheck(this, Modal);
+
+        return _possibleConstructorReturn(this, (Modal.__proto__ || Object.getPrototypeOf(Modal)).call(this, props));
+    }
+
+    _createClass(Modal, [{
+        key: 'render',
+        value: function render() {
+            var modal = null;
+            if (this.props.modalType === 1) {
+                modal = _react2.default.createElement(RegModal, { cbTopNav: this.props.cbTopNav });
+            } else if (this.props.modalType === 2) {
+                modal = _react2.default.createElement(LoginModal, { cbTopNav: this.props.cbTopNav });
+            }
+            return _react2.default.createElement(
+                'div',
+                { className: 'mask' },
+                modal
+            );
+        }
+    }]);
+
+    return Modal;
+}(_react2.default.Component);
+
+var RegModal = function (_React$Component2) {
+    _inherits(RegModal, _React$Component2);
+
+    // 注册框组件
+    function RegModal(props) {
+        _classCallCheck(this, RegModal);
+
+        return _possibleConstructorReturn(this, (RegModal.__proto__ || Object.getPrototypeOf(RegModal)).call(this, props));
+    }
+
+    _createClass(RegModal, [{
+        key: 'render',
+        value: function render() {
+            return _react2.default.createElement(
+                'div',
+                { className: 'modal' },
+                _react2.default.createElement(
+                    'h2',
+                    null,
+                    '\u8D26\u53F7\u6CE8\u518C'
+                ),
+                _react2.default.createElement('i', { className: 'fa fa-times', 'aria-hidden': 'true', onClick: this.props.cbTopNav }),
+                _react2.default.createElement(
+                    'div',
+                    { className: 'form' },
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'input-group' },
+                        _react2.default.createElement('i', { className: 'fa fa-user-o', 'aria-hidden': 'true' }),
+                        _react2.default.createElement('input', { type: 'text', placeholder: '\u7528\u6237\u540D' })
+                    ),
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'input-group' },
+                        _react2.default.createElement('i', { className: 'fa fa-lock', 'aria-hidden': 'true' }),
+                        _react2.default.createElement('input', { type: 'password', placeholder: '\u5BC6\u7801' })
+                    ),
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'input-group' },
+                        _react2.default.createElement('i', { className: 'fa fa-lock', 'aria-hidden': 'true' }),
+                        _react2.default.createElement('input', { type: 'password', placeholder: '\u518D\u6B21\u8F93\u5165\u5BC6\u7801' })
+                    )
+                ),
+                _react2.default.createElement(
+                    'button',
+                    null,
+                    '\u7ACB\u5373\u6CE8\u518C'
+                )
+            );
+        }
+    }]);
+
+    return RegModal;
+}(_react2.default.Component);
+
+var LoginModal = function (_React$Component3) {
+    _inherits(LoginModal, _React$Component3);
+
+    // 登录框组件
+    function LoginModal(props) {
+        _classCallCheck(this, LoginModal);
+
+        return _possibleConstructorReturn(this, (LoginModal.__proto__ || Object.getPrototypeOf(LoginModal)).call(this, props));
+    }
+
+    _createClass(LoginModal, [{
+        key: 'render',
+        value: function render() {
+            return _react2.default.createElement(
+                'div',
+                { className: 'modal' },
+                _react2.default.createElement(
+                    'h2',
+                    null,
+                    '\u8D26\u53F7\u767B\u5F55'
+                ),
+                _react2.default.createElement('i', { className: 'fa fa-times', 'aria-hidden': 'true', onClick: this.props.cbTopNav }),
+                _react2.default.createElement(
+                    'div',
+                    { className: 'form' },
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'input-group' },
+                        _react2.default.createElement('i', { className: 'fa fa-user-o', 'aria-hidden': 'true' }),
+                        _react2.default.createElement('input', { type: 'text', placeholder: '\u7528\u6237\u540D' })
+                    ),
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'input-group' },
+                        _react2.default.createElement('i', { className: 'fa fa-lock', 'aria-hidden': 'true' }),
+                        _react2.default.createElement('input', { type: 'password', placeholder: '\u5BC6\u7801' })
+                    ),
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'login-option' },
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'remeber' },
+                            _react2.default.createElement('input', { type: 'checkbox', id: 'remeberMe' }),
+                            _react2.default.createElement(
+                                'label',
+                                { htmlFor: 'remeberMe' },
+                                '\u8BB0\u4F4F\u6211'
+                            )
+                        ),
+                        _react2.default.createElement(
+                            'a',
+                            { href: '' },
+                            '\u5FD8\u8BB0\u5BC6\u7801'
+                        )
+                    )
+                ),
+                _react2.default.createElement(
+                    'button',
+                    null,
+                    '\u7ACB\u5373\u767B\u5F55'
+                )
+            );
+        }
+    }]);
+
+    return LoginModal;
+}(_react2.default.Component);
+
+exports.Modal = Modal;
+
+},{"react":178}]},{},[179]);

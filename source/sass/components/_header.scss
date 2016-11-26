@@ -2,18 +2,19 @@
 .header {
 	margin-bottom: 10px;
 	padding: 5px 0;
-	border-bottom: 1px solid #999;
+	border-bottom: 1px solid #eee;
+	background-color: #FFF;
+	box-shadow: 1px 1px 1px #eee;
 	.topbar {
 		margin: 0 auto;
 		height: $topbar-height;
 		width: $container-width;
-		div {
+		.logo {
 			display: inline-block;
 			margin-top: 5px;
 			margin-left: 5px;
 			width: 80px;
 			height: 20px;
-			border: 1px solid green;
 		}
 		ul {
 			float: right;

@@ -3,6 +3,7 @@ html {
 }
 body {
   font-family:"Microsoft YaHei",微软雅黑,Arial,Helvetica,sans-serif,"宋体";
+  background-color: rgba(240,248,255,.5);
 }
 ol, ul {
   list-style: none;
@@ -12,4 +13,5 @@ ol, ul {
   @include clearfix();
   margin: 0 auto;
   width: $container-width;
+  background-color:#FFF;
 }
