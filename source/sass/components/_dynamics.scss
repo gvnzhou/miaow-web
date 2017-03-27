@@ -1,0 +1,45 @@
+.dynamics {
+  margin-top: 10px;
+  padding: 15px 0;
+  background-color: #FFF;
+  border: 1px solid #eee;
+  border-radius: 5px;
+  .user {
+    padding: 0 15px;
+    @include clearfix();
+    img {
+      float: left;
+      margin-right: 15px;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      border: 1px solid red;
+    }
+    .userInfo {
+      float: left;
+      width: 550px;
+      margin-top: 5px;
+      p {
+        font-size: 1rem;
+      }
+      p:nth-child(2){
+        font-size: .8rem;
+        color: #999;
+      }
+      .content {
+        margin-top: 10px;
+      }
+    }
+  }
+  .content-option {
+    margin-top: 10px;
+    @include clearfix();
+    li {
+      float: left;
+      width: 33%;
+      padding-top: 5px;
+      text-align: center;
+      border-top: 1px solid #eee;
+    }
+  }
+}

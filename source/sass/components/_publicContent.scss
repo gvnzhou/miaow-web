@@ -1,5 +1,8 @@
+@import "publish";
+@import "dynamicsNav";
+@import "dynamics";
+
 .public-content {
   float: left;
   width: $public-content-width - 4;
-  border: 1px solid blue;
 }

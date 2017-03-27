@@ -181,21 +181,59 @@ html {
   font-size: 16px; }
 
 body {
-  font-family: "Microsoft YaHei",微软雅黑,Arial,Helvetica,sans-serif,"宋体";
+  font-family: "Microsoft YaHei","微软雅黑",Arial,Helvetica,sans-serif,"宋体";
   background-color: rgba(240, 248, 255, 0.5); }
 
 ol, ul {
-  list-style: none; }
+  list-style: none;
+  margin: 0;
+  padding: 0; }
+
+p {
+  margin: 0; }
 
 .container {
   margin: 0 auto;
-  width: 1000px;
-  background-color: #FFF; }
+  width: 1000px; }
   .container:before, .container:after {
     content: " ";
     display: table; }
   .container:after {
     clear: both; }
+
+.form .input-group {
+  position: relative;
+  margin: 15px auto;
+  width: 260px; }
+  .form .input-group i {
+    position: absolute;
+    top: 8px;
+    left: 10px;
+    color: #999; }
+  .form .input-group .fa-lock {
+    top: 6px;
+    left: 11px;
+    font-size: 1.2rem; }
+  .form .input-group input {
+    display: inline-block;
+    width: 220px;
+    padding: 4px 5px;
+    padding-left: 30px;
+    font-size: .8rem; }
+
+.btn {
+  display: block;
+  padding: 3px 0;
+  margin: 10px auto;
+  width: 120px;
+  border-radius: 5px;
+  background-color: #D15E7A;
+  color: #FFFFFF;
+  font-size: .9rem;
+  border: 0;
+  outline: 0; }
+  .btn:hover {
+    opacity: .7; }
 
 .header {
   margin-bottom: 10px;
@@ -238,15 +276,124 @@ ol, ul {
         height: 14px;
         background-color: #d9d9d9; }
 
+.publish-content {
+  padding: 0 20px;
+  border-radius: 5px;
+  background-color: #FFF;
+  border: 1px solid #eee; }
+  .publish-content p {
+    padding: 10px 0; }
+  .publish-content textarea {
+    width: 615px;
+    height: 100px; }
+  .publish-content ul {
+    display: inline-block;
+    width: 400px;
+    margin: 15px 0; }
+    .publish-content ul:before, .publish-content ul:after {
+      content: " ";
+      display: table; }
+    .publish-content ul:after {
+      clear: both; }
+    .publish-content ul li {
+      float: left;
+      margin-right: 40px; }
+  .publish-content button {
+    float: right;
+    margin: 15px 0;
+    padding: 3px 0;
+    width: 80px;
+    border-radius: 5px;
+    background-color: #D15E7A;
+    color: #FFFFFF;
+    font-size: .9rem;
+    border: 0;
+    outline: 0;
+    opacity: .7; }
+    .publish-content button:hover {
+      opacity: 1; }
+
+.dynamicsNav {
+  margin-top: 10px;
+  padding: 10px 20px;
+  background-color: #FFF;
+  border: 1px solid #eee;
+  border-radius: 5px; }
+  .dynamicsNav ul:before, .dynamicsNav ul:after {
+    content: " ";
+    display: table; }
+  .dynamicsNav ul:after {
+    clear: both; }
+  .dynamicsNav ul li {
+    float: left;
+    margin-right: 20px; }
+
+.dynamics {
+  margin-top: 10px;
+  padding: 15px 0;
+  background-color: #FFF;
+  border: 1px solid #eee;
+  border-radius: 5px; }
+  .dynamics .user {
+    padding: 0 15px; }
+    .dynamics .user:before, .dynamics .user:after {
+      content: " ";
+      display: table; }
+    .dynamics .user:after {
+      clear: both; }
+    .dynamics .user img {
+      float: left;
+      margin-right: 15px;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      border: 1px solid red; }
+    .dynamics .user .userInfo {
+      float: left;
+      width: 550px;
+      margin-top: 5px; }
+      .dynamics .user .userInfo p {
+        font-size: 1rem; }
+      .dynamics .user .userInfo p:nth-child(2) {
+        font-size: .8rem;
+        color: #999; }
+      .dynamics .user .userInfo .content {
+        margin-top: 10px; }
+  .dynamics .content-option {
+    margin-top: 10px; }
+    .dynamics .content-option:before, .dynamics .content-option:after {
+      content: " ";
+      display: table; }
+    .dynamics .content-option:after {
+      clear: both; }
+    .dynamics .content-option li {
+      float: left;
+      width: 33%;
+      padding-top: 5px;
+      text-align: center;
+      border-top: 1px solid #eee; }
+
 .public-content {
   float: left;
-  width: 662.66667px;
-  border: 1px solid blue; }
+  width: 662.66667px; }
+
+.miniUserInfo {
+  padding-top: 15px;
+  border: 1px solid #eee;
+  border-radius: 5px;
+  background-color: #FFF; }
+  .miniUserInfo h2 {
+    margin: 0;
+    margin-left: 35px;
+    font-size: 1rem; }
+
+.friend {
+  background-color: #FFF;
+  margin-top: 15px; }
 
 .public-sidebar {
   float: right;
-  width: 333.33333px;
-  border: 1px solid red; }
+  width: 329.33333px; }
 
 #react-application .mask {
   position: absolute;
@@ -283,52 +430,33 @@ ol, ul {
       color: #999; }
       #react-application .mask .modal .fa-times:hover {
         color: #000; }
-    #react-application .mask .modal .form .input-group {
-      position: relative;
-      width: 240px;
-      margin: 15px auto; }
-      #react-application .mask .modal .form .input-group i {
-        position: absolute;
-        top: 8px;
-        left: 10px;
-        color: #999; }
-      #react-application .mask .modal .form .input-group .fa-lock {
-        top: 6px;
-        left: 11px;
-        font-size: 1.2rem; }
-      #react-application .mask .modal .form .input-group input {
-        display: inline-block;
-        width: 220px;
-        padding: 4px 5px;
-        padding-left: 30px;
-        font-size: .8rem; }
-    #react-application .mask .modal .form .login-option {
+    #react-application .mask .modal .login-option {
       width: 250px;
       margin: 0 auto;
       margin-top: -12px; }
-      #react-application .mask .modal .form .login-option:before, #react-application .mask .modal .form .login-option:after {
+      #react-application .mask .modal .login-option:before, #react-application .mask .modal .login-option:after {
         content: " ";
         display: table; }
-      #react-application .mask .modal .form .login-option:after {
+      #react-application .mask .modal .login-option:after {
         clear: both; }
-      #react-application .mask .modal .form .login-option .remeber {
+      #react-application .mask .modal .login-option .remeber {
         float: left;
         display: inline-block;
         width: 60px; }
-        #react-application .mask .modal .form .login-option .remeber input[type='checkbox'] {
+        #react-application .mask .modal .login-option .remeber input[type='checkbox'] {
           width: 12px;
           height: 12px; }
-        #react-application .mask .modal .form .login-option .remeber label {
+        #react-application .mask .modal .login-option .remeber label {
           margin-left: 2px;
           font-size: .8rem;
           color: #999;
           vertical-align: top; }
-      #react-application .mask .modal .form .login-option a {
+      #react-application .mask .modal .login-option a {
         float: right;
         margin-right: -12px;
         font-size: .8rem;
         color: #999; }
-        #react-application .mask .modal .form .login-option a:hover {
+        #react-application .mask .modal .login-option a:hover {
           color: #D15E7A; }
     #react-application .mask .modal button {
       padding: 3px 0;
@@ -342,3 +470,11 @@ ol, ul {
       outline: 0; }
       #react-application .mask .modal button:hover {
         opacity: .7; }
+
+.footer {
+  margin-top: 15px;
+  padding: 20px;
+  background-color: #F3F3F3; }
+  .footer .footer-wrap {
+    width: 1000px;
+    margin: 0 auto; }

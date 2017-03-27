@@ -1,0 +1,10 @@
+.miniUserInfo {
+  padding-top: 15px;
+  @include com-border(#eee,5px);
+  background-color: #FFF;
+  h2 {
+    margin: 0;
+    margin-left: 35px;
+    font-size: 1rem;
+  }
+}

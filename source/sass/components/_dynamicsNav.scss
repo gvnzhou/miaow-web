@@ -1,0 +1,14 @@
+.dynamicsNav {
+  margin-top: 10px;
+  padding: 10px 20px;
+  background-color: #FFF;
+  border: 1px solid #eee;
+  border-radius: 5px;
+  ul {
+    @include clearfix();
+    li {
+      float: left;
+      margin-right: 20px;
+    }
+  }
+}

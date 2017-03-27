@@ -1,5 +1,7 @@
+@import "miniUserInfo";
+@import "friend";
+
 .public-sidebar {
   float: right;
-  width: $public-sidebar-width;
-  border:1px solid red;
+  width: $public-sidebar-width - 4;
 }

@@ -1,0 +1,5 @@
+// 组件边框样式
+@mixin com-border($color,$radius) {
+  border: 1px solid $color;
+  border-radius: $radius;
+}
